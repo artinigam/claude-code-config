@@ -1,6 +1,6 @@
 # AI Configuration — Arti Nigam
 
-My Claude Code setup: a global `CLAUDE.md`, 9 specialized agents, and a custom skill.
+My Claude Code setup for RescheduleEngine and show what agents i use: a global `CLAUDE.md`, 9 specialized agents, and a custom skill.
 Built and evolved through daily use — not a one-shot config. 
 
 **Note : I have used my agents to get the assignment reviewed which helps me double check my review feedbacks and ensure i have not missed anything.
