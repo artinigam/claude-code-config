@@ -1,4 +1,4 @@
-# AI Configuration — Aarti Nigam
+# AI Configuration — Arti Nigam
 
 My Claude Code setup: a global `CLAUDE.md`, 9 specialized agents, and a custom skill.
 Built and evolved through daily use — not a one-shot config.
