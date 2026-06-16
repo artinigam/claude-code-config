@@ -1,0 +1,56 @@
+# AI Configuration — Aarti Nigam
+
+My Claude Code setup: a global `CLAUDE.md`, 9 specialized agents, and a custom skill.
+Built and evolved through daily use — not a one-shot config.
+
+## Structure
+
+```
+├── CLAUDE.md                  # Project-level config (ReschedulingEngine, Team Aurora)
+├── agents/                    # Specialized agents for backend development
+│   ├── README.md              # Agent index and usage guide
+│   ├── system-design-architect.md
+│   ├── backend-mr-reviewer.md
+│   ├── backend-implementation-planner.md
+│   ├── backend-python-writer.md
+│   ├── backend-java-writer.md
+│   ├── backend-go-writer.md
+│   ├── backend-python-test-engineer.md
+│   ├── backend-java-test-engineer.md
+│   └── backend-go-test-engineer.md
+└── skills/
+    └── generate-rca/          # Posts structured RCA to Jira from PagerDuty alerts
+```
+
+## Design philosophy
+
+**Specialization over generalization.** Rather than one all-purpose prompt, each agent
+has a defined role, a specific model, and scoped tools — mirroring how I'd structure
+a team. The `system-design-architect` runs on Opus for deep trade-off analysis;
+code writers and reviewers run on Sonnet for speed.
+
+**Explicit contracts, not vibes.** The `CLAUDE.md` defines what the AI owns vs. what
+requires human sign-off, what to push back on, and what is off-limits. Vague rules
+("be careful with production") are replaced with specific gates ("never run git push
+without explicit instruction").
+
+**Guardrails built in.** The PR reviewer produces structured Critical / Major / Minor
+output so human review time goes to judgment calls, not catching `SELECT *` inside a loop.
+
+## Key agents
+
+| Agent | Model | Purpose |
+|-------|-------|---------|
+| `system-design-architect` | Opus | HLD/LLD, SQL vs NoSQL decisions, trade-off analysis |
+| `backend-mr-reviewer` | Sonnet | PR review — security, performance, observability, testing |
+| `backend-implementation-planner` | Sonnet | Breaks features into actionable tasks with edge cases |
+| `backend-python-writer` | Sonnet | Production-quality FastAPI/Django/Flask code |
+| `backend-java-writer` | Sonnet | Spring Boot, null safety, SOLID patterns |
+| `backend-go-writer` | Sonnet | Idiomatic Go, goroutines, context management |
+
+## How I use this day-to-day
+
+1. **Before writing code:** `backend-implementation-planner` breaks the feature into tasks
+2. **During implementation:** language-specific writer agent for boilerplate and patterns
+3. **Before PR review:** `backend-mr-reviewer` runs a first-pass — I focus on the judgment calls
+4. **For new system designs:** `system-design-architect` surfaces trade-offs before I book a review meeting
