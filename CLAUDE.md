@@ -5,7 +5,7 @@
 Backend Python service — FastAPI, gRPC, Kafka, PostgreSQL, MongoDB.
 Zero Touch critical path. Any outage directly impacts revenue.
 Stack: Python 3.11, pytest, Temporal for orchestration, Statsig for feature flags.
-Team: 6-engineer pod (Team Aurora). Bangalore-based.
+
 
 ## What you own vs. what you ask me first
 
